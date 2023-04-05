@@ -1,3 +1,37 @@
+//Задача 6
+
+for (let i = 2; i <= 10; i++) {
+    
+    for (let j = 1; j <= 10; j++) {
+
+        console.log(`${i} * ${j} = ${i * j}`)
+        if (j === 10) console.log('...')
+        
+    }
+
+}
+
+// Задача 7
+
+const task7 = (number) => {
+
+    if (Number.isNaN(+number)) return 'вы ввели не число'
+    
+
+    let counter = 0
+
+    for (; 1 ; ) {
+        number /= 2
+        counter++
+        if (number < 50) break
+    }
+
+    return `чисало:${number}, необходимое колличество итераций: ${counter}`
+
+}
+
+console.log(task7(1000))
+
 //Задача 8
 
 const task8 = () => {
