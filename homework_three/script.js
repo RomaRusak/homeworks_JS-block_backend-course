@@ -1,3 +1,5 @@
+//Задача 8
+
 const task8 = () => {
   let sum = 0;
   let counter = 0;
@@ -21,6 +23,8 @@ const task8 = () => {
 };
 
 // console.log(task8());
+
+// Задача 9
 
 const task9 = (string) => {
   let min = Infinity;
@@ -60,6 +64,8 @@ const task9 = (string) => {
 };
 
 console.log(task9('asdas4 8 15 16 23 42.5'));
+
+// Задача 10
 
 const task10 = (number) => {
   if (!Number.isInteger(number)) return 'вы ввели не число';
