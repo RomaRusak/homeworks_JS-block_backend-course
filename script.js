@@ -38,7 +38,7 @@ class ContactList {
 
   #generateId () {
     const id = Math.floor(Math.random() * 100 + 1);
-    if (this.contacts.some((item) => item.id === id)) return this.generateId();
+    if (this.contacts.some((item) => item.id === id)) return this.#generateId();
     return id;
   }; // добавляю id
 
