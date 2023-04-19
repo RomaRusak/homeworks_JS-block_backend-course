@@ -30,18 +30,18 @@ const Car = function () {
     },
 
     gas() {
-      if (!this.switch) console.log('машина заглушена!');
+      if (!this.switch) return console.log('машина заглушена!');
       _speed += 10;
     },
 
     brake() {
-      if (!this.switch) console.log('машина заглушена!');
+      if (!this.switch) return console.log('машина заглушена!');
       _speed -= 10;
     },
 
     distanceTraveledCalculation() {
       if (_speed < 1) return console.log('стоим на месте');
-      if (!this.switch) console.log('машина заглушена!');
+      if (!this.switch) return console.log('машина заглушена!');
 
       setTimeout(() => {
         console.clear();
