@@ -10,7 +10,7 @@ class User {
     this.id = id;
   }
 
-  setData = function (data) {
+  setData (data) {
     Object.assign(this, data);
   };
 }
@@ -26,23 +26,23 @@ class ContactList {
     return this;
   }
 
-  addContact = function (data) {
+  addContact (data) {
     if (!this.switch) return console.log('я выключен!');
 
     if (isNaN(+data.age) || data.age < 18)
       return console.log('возраст должен быть больше 18!');
-    data.id = this.generateId();
+    data.id = this.#generateId();
     this.contacts.push(new User(data));
     return this;
   }; // добавляю контакт
 
-  generateId = function () {
+  #generateId () {
     const id = Math.floor(Math.random() * 100 + 1);
     if (this.contacts.some((item) => item.id === id)) return this.generateId();
     return id;
   }; // добавляю id
 
-  removeContact = function ({ name }) {
+  removeContact ({ name }) {
     if (!this.switch) return console.log('я выключен!');
 
     const { id } = this.contacts.find((contact) => contact.name === name);
@@ -50,7 +50,7 @@ class ContactList {
     return this;
   }; //удаляем контакт
 
-  setContact = function (name, data) {
+  setContact (name, data) {
     if (!this.switch) return console.log('я выключен!');
 
     const { id } = this.contacts.find((contact) => contact.name === name);
@@ -63,13 +63,13 @@ class ContactList {
     return this
   }; // редактируем контакт
 
-  showContact = function (name) {
+  showContact (name) {
     this.contacts.map((contact) => {
       if (contact.name === name) console.log(contact);
     });
   };
 
-  showAllContacts = function () {
+  showAllContacts () {
     this.contacts.map((contact) => console.log(contact));
   };
 }
