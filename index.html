@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="content">
+        <div id="newTask">
+            <label for="name">Название</label>
+            <input type="text" id="name">
+            <br/>
+            <label for="name">Детали</label>
+            <textarea id="details"></textarea>
+            <br/>
+            <button id="add" onclick="timetable.setTasks()">Добавить</button>
+        </div>
+        <div>
+            <table id="timetable" border="1">
+ 
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        let timetable = new TaskList()
+        var element = document.getElementById("add");
+        timetable.getTasks();
+    </script>
+</body>
+</html>
