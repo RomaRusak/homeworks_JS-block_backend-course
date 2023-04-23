@@ -11,6 +11,7 @@ class TaskList {
         task.name = name.value
         task.details = details.value
         task.id = id
+        if (task.name === '' && task.details === '') return
         this.#tasks.push(task)
 
         name.value = ''
