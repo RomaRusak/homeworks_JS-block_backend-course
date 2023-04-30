@@ -145,6 +145,7 @@ select {
 .todo-description {
     font-size: 2rem;
     font-weight: 700;
+    overflow-wrap: anywhere;
 }
 
 .buttons-wrapper {
