@@ -77,9 +77,16 @@ class TodoList {
 }
 
 class TodoListUI extends TodoList {
+
     constructor () {
         super()
         this.#init()
+    }
+
+    #keyDownEListenerCallback = () => {
+        if (event.code === 'Enter') {
+            this.add()
+        }
     }
 
     #init() {
@@ -103,6 +110,7 @@ class TodoListUI extends TodoList {
             this.add()
         })
         
+        document.addEventListener('keydown', this.#keyDownEListenerCallback)
        
         this.#localStorageInit()
     }
@@ -147,11 +155,24 @@ class TodoListUI extends TodoList {
                 todoDescription.classList.add('editable')
                 document.querySelector('.system-messages').innerHTML = 
                 "You can eddit you todo now.<br/>please don't forget to save your changes"
+                document.removeEventListener('keydown', this.#keyDownEListenerCallback)
 
                 editButton.addEventListener('click', () => {
                     this.edit(todo.id ,todoDescription.innerText)
+                    document.addEventListener('keydown', this.#keyDownEListenerCallback)
                     this.#render()
                 })
+
+                const editCallBack = () => {
+                    if (event.code === 'Enter') {
+                        this.edit(todo.id ,todoDescription.innerText)
+                        document.addEventListener('keydown', this.#keyDownEListenerCallback)
+                        document.removeEventListener('keydown', editCallBack)
+                        this.#render()
+                    }
+                }
+
+                document.addEventListener('keydown', editCallBack)
             })
         })
 
@@ -194,3 +215,4 @@ class TodoListUI extends TodoList {
 }
 
 const todoList = new TodoListUI()
+console.log(todoList)
